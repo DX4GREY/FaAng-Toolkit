@@ -19,9 +19,16 @@
 Installation support for Kali Linux, Ubuntu And Termux
 
 Just enter this command
+
+Linux
  ```bash
-curl -s https://raw.githubusercontent.com/DX4GRRY/FaAng-Toolkit/main/install.sh | sudo bash -s
+curl -s https://raw.githubusercontent.com/DX4GREY/FaAng-Toolkit/main/install.sh | sudo bash -s
  ```
+
+Termux
+```bash
+curl -s https://raw.githubusercontent.com/DX4GREY/FaAng-Toolkit/main/install.sh | bash -s
+```
 # HOW TO RUN
 1. Open terminal and type command
 ```bash
