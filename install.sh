@@ -6,6 +6,7 @@ install_termux() {
     cd FaAng-Toolkit
     sh setup.sh
     cd ../
+    rm -rf FaAng-Toolkit
 }
 install_linux() {
     sudo apt-get update
@@ -15,6 +16,7 @@ install_linux() {
     cd FaAng-Toolkit
     sh setup.sh
     cd ../
+    rm -rf FaAng-Toolkit
 }
 
 detect_platform() {
