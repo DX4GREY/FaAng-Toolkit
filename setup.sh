@@ -1,7 +1,6 @@
 #!/bin/bash
-BASHCMD = "python $HOME/.faang"
-
-LINUXCMD = "sudo python $HOME/.faang"
+$BASHCMD = "python $HOME/.faang"
+$LINUXCMD = "sudo python $HOME/.faang"
 
 install_pip() {
     echo "Starting pip installation..."
