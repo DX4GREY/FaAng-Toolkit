@@ -29,7 +29,7 @@ install_packages() {
         python -m pip install httpx > /dev/null 2>&1
         python -m pip install undetected_chromedriver > /dev/null 2>&1
         python -m pip install cloudscraper > /dev/null 2>&1
-        echo "Package installation completed." > /dev/null 2>&1
+        echo "Package installation completed."
     else
         echo "pip is not installed. Cannot proceed with package installation."
     fi
