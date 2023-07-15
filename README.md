@@ -16,26 +16,12 @@
 
 # INSTALLATION
   
-Installation support for Kali Linux, Ubuntu And Termux Android
+Installation support for Kali Linux, Ubuntu And Termux
 
-Linux
+Just enter this command
  ```bash
-$ sudo apt-get update
-$ sudo apt-get upgrade
-$ sudo apt-get install git
-$ git clone https://github.com/DX4GREY/FaAng-Toolkit
-$ cd FaAng-Toolkit
-$ sh setup.sh
+curl -s https://raw.githubusercontent.com/DX4GRRY/FaAng-Toolkit/main/install.sh | sudo bash -s
  ```
-Android - Termux
-```bash
-$ pkg update
-$ pkg upgrade
-$ pkg install git
-$ git clone https://github.com/DX4GREY/FaAng-Toolkit
-$ cd FaAng-Toolkit
-$ sh setup.sh
-```
 # HOW TO RUN
 1. Open terminal and type command
 ```bash
