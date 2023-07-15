@@ -26,7 +26,7 @@ curl -s https://raw.githubusercontent.com/DX4GREY/FaAng-Toolkit/main/install.sh 
 # HOW TO RUN
 1. Open terminal and type command
 ```bash
-$ faang
+faang
 ```
 
 # WARNING
