@@ -11,21 +11,23 @@ Linux
 $ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install git
-$ git clone https://github.com/DX4GREY/FaAng
-$ sh FaAng/setup.sh
+$ git clone https://github.com/DX4GREY/FaAng-Toolkit
+$ cd FaAng-Toolkit
+$ sh setup.sh
  ```
 Android - Termux
 ```bash
 $ pkg update
 $ pkg upgrade
 $ pkg install git
-$ git clone https://github.com/DX4GREY/FaAng
-$ sh FaAng/setup.sh
+$ git clone https://github.com/DX4GREY/FaAng-Toolkit
+$ cd FaAng-Toolkit
+$ sh setup.sh
 ```
 # HOW TO RUN
 1. Open terminal and type command
 ```bash
-$ python3 FaAng
+$ faang
 ```
 
 # WARING
