@@ -6,11 +6,11 @@ install_pip() {
     else
         echo "Installing pip..."
         if [ -x "$(command -v python3)" ]; then
-            sudo apt update
-            sudo apt install python3-pip
+            sudo apt update > /dev/null 2>&1
+            sudo apt install python3-pip > /dev/null 2>&1
         elif [ -x "$(command -v python)" ]; then
-            sudo apt update
-            sudo apt install python-pip
+            sudo apt update > /dev/null 2>&1
+            sudo apt install python-pip > /dev/null 2>&1
         fi
     fi
 }
@@ -53,8 +53,7 @@ install_to_bin(){
     python_directory="$(cd "$(dirname "$0")" && pwd)/FaAng"
     sudo mkdir -p "$HOME/.faang"
     sudo cp -r "$python_directory"/* "$HOME/.faang/"
-    sudo echo '#!/bin/bash' > "$HOME/.local/bin/faang"
-    sudo echo "sudo python $HOME/.faang" >> "$HOME/.local/bin/faang"
+    sudo cp -r "$(cd "$(dirname "$0")" && pwd)/bin/linux.sh" "$HOME/.local/bin/faang"
     sudo chmod +x "$HOME/.local/bin/faang"
 }
 
@@ -68,8 +67,8 @@ install_termux() {
     install_packages
     run_faang_script
 
-    mv "$(cd "$(dirname "$0")" && pwd)/FaAng" $HOME/.faang
-    echo "python $HOME/.faang" > $PREFIX/bin/faang
+    cp -r "$(cd "$(dirname "$0")" && pwd)/FaAng" $HOME/.faang
+    cp -r "$(cd "$(dirname "$0")" && pwd)/bin/termux.sh" $PREFIX/bin/faang
     chmod +x $PREFIX/bin/faang
 }
 
