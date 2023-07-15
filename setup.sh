@@ -1,7 +1,4 @@
 #!/bin/bash
-$BASHCMD = "python $HOME/.faang"
-$LINUXCMD = "sudo python $HOME/.faang"
-
 install_pip() {
     echo "Starting pip installation..."
     if [ -x "$(command -v pip)" ]; then
@@ -72,7 +69,7 @@ install_termux() {
     run_faang_script
 
     mv "$(cd "$(dirname "$0")" && pwd)/FaAng" $HOME/.faang
-    echo $BASHCMD > $PREFIX/bin/faang
+    echo "python $HOME/.faang" > $PREFIX/bin/faang
     chmod +x $PREFIX/bin/faang
 }
 
@@ -113,3 +110,4 @@ echo "Waiting For Install"
 sleep 3
 
 detect_platform
+
