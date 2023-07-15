@@ -16,7 +16,7 @@ install_linux() {
     cd FaAng-Toolkit
     sh setup.sh
     cd ../
-    rm -rf FaAng-Toolkit
+    sudo rm -rf FaAng-Toolkit
 }
 
 detect_platform() {
