@@ -11,6 +11,6 @@ case $# in
         fi
         ;;
     *)
-        python $HOME/.faang
+        sudo python $HOME/.faang
         ;;
 esac
