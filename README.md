@@ -22,6 +22,16 @@ Just enter this command
 ```bash
 curl -s https://raw.githubusercontent.com/DX4GREY/FaAng-Toolkit/main/install.sh | bash -s
 ```
+if python not installed, try install manually
+Linux
+```bash
+sudo apt install python
+```
+Termux
+```bash
+pkg install python
+```
+
 How to uninstall
 ```bash
 faang --uninstall
