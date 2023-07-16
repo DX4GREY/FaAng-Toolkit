@@ -819,7 +819,7 @@ def start():
         "SKY       layer7 => Sky method", 
         "CFREQ    layer7 => Bypass CF UAM, CAPTCHA, BFM (request)", 
         "CFSOC    layer7 => Bypass CF UAM, CAPTCHA, BFM (socket)", 
-        "CFB       layer7 => Bypass CF Attack
+        "CFB      layer7 => Bypass CF Attack"
     ]
     DisplayMenu(menu)
     print() 
