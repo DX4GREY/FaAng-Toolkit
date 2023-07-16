@@ -37,8 +37,8 @@ run_faang_script() {
 
 install_kali() {
     echo "Starting Python installation on Kali Linux..."
-    sudo apt update > /dev/null 2>&1
-    sudo apt install python3 > /dev/null 2>&1
+    sudo apt update -y > /dev/null 2>&1
+    sudo apt install python3 -y > /dev/null 2>&1
     python3 --version
 
     install_pip
@@ -59,8 +59,8 @@ install_to_bin(){
 
 install_termux() {
     echo "Starting Python installation on Termux..."
-    pkg update > /dev/null 2>&1
-    pkg install python > /dev/null 2>&1
+    pkg update -y > /dev/null 2>&1
+    pkg install python -y > /dev/null 2>&1
     python --version
 
     install_pip
@@ -74,8 +74,8 @@ install_termux() {
 
 install_ubuntu() {
     echo "Starting Python installation on Ubuntu..."
-    audo apt update > /dev/null 2>&1
-    sudo apt install python3 > /dev/null 2>&1
+    apt update -y > /dev/null 2>&1
+    apt install python3 -y > /dev/null 2>&1
     python3 --version
 
     install_pip
