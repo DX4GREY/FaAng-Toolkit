@@ -13,6 +13,7 @@
 <b>[9]</b> SKY       layer7 => Sky method<br>
 <b>[10]</b> CFREQ    layer7 => Bypass CF UAM, CAPTCHA, BFM (request)<br>
 <b>[11]</b> CFSOC    layer7 => Bypass CF UAM, CAPTCHA, BFM (socket)<br>
+<b>[12]</b> CFB    layer7 => Bypass CF Attack<br>
 
 # INSTALLATION
   
