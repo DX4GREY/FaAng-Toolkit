@@ -764,7 +764,8 @@ def DisplayMenu(menu_items):
     print("-" * 50)
     print("|")
     print(f"|-->{Fore.BLUE}[0]{Fore.RESET} Exit")
-    print(f"|-->{Fore.BLUE}[999]{Fore.RESET} About Script")
+    print(f"|-->{Fore.BLUE}[00]{Fore.RESET} About Script")
+    print(f"|-->{Fore.BLUE}[000]{Fore.RESET} LogOut From FaAng account")
     print("|") 
     print("-" * 50)
 #end
@@ -789,11 +790,16 @@ def start():
     DisplayMenu(menu)
     print() 
     indexSelect = input(Fore.MAGENTA+" [?] "+Fore.RESET+"Select : ")
-    if indexSelect.upper() == "999":
+    if indexSelect.upper() == "00":
         StartTitle(f"About This Script") 
         print(Fore.MAGENTA + " [!] " + Fore.RESET + f"Script Creator : {Fore.RED}D{Fore.YELLOW}x{Fore.GREEN}4")
         print(Fore.MAGENTA + " [!] " + Fore.RESET + f"Support : F4Z")
         print(Fore.YELLOW+ " [!] " + Fore.RESET + f"Thanks to : Github, {Fore.BLUE}Allah{Fore.RESET}, Microsoft, Python, F4Z") 
+    elif indexSelect.upper() == "000":
+        StartTitle(f"Exitt") 
+        os.remove(LOGIN_FILE)
+        print(Fore.MAGENTA + " [!] " + Fore.RESET + f"Logged Out")
+        sys.exit()
     elif indexSelect.upper() == "0":
         StartTitle(f"Exit") 
         sys.exit()
@@ -841,3 +847,4 @@ if __name__ == '__main__':
     with open(file_path, 'r') as file:
         ua = file.read().split("\n") 
     login() 
+
