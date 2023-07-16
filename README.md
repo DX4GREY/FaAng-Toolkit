@@ -22,15 +22,6 @@ Just enter this command
 ```bash
 curl -s https://raw.githubusercontent.com/DX4GREY/FaAng-Toolkit/main/install.sh | bash -s
 ```
-if python not installed, try install manually
-Linux
-```bash
-sudo apt install python
-```
-Termux
-```bash
-pkg install python
-```
 
 How to uninstall
 ```bash
@@ -41,6 +32,22 @@ faang --uninstall
 1. Open terminal and type command
 ```bash
 faang
+```
+
+if python not installed, try install manually
+
+Linux
+```bash
+sudo apt install python
+```
+Termux
+```bash
+pkg install python
+```
+
+and if done, install again this script
+```bash
+curl -s https://raw.githubusercontent.com/DX4GREY/FaAng-Toolkit/main/install.sh | bash -s
 ```
 
 # WARNING
