@@ -22,8 +22,7 @@ Just enter this command
 ```bash
 curl -s https://raw.githubusercontent.com/DX4GREY/FaAng-Toolkit/main/install.sh | bash -s
 ```
-
-# HOW TO UNINSTALL
+How to uninstall
 ```bash
 faang --uninstall
 ```
