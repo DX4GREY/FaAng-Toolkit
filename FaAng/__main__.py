@@ -671,10 +671,13 @@ def DdosCFREQ():
     quest = input(Fore.RED+" [!] "+Fore.RESET+"Alert, Are you sure to attack (Y/N)? ")
 
     if "Y" in quest.upper():
-        timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
-        timer.start()
-        LaunchCFPRO(target, thread, t)
-        timer.join()
+        if get_cookie(target):
+            timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+            timer.start()
+            LaunchCFPRO(target, thread, t)
+            timer.join()
+        else:
+            print(f"{Fore.RED} [*] {Fore.RESET}Cookie reset")
     else:
         print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
         sys.exit()
@@ -687,10 +690,13 @@ def DdosCFSOC():
     quest = input(Fore.RED+" [!] "+Fore.RESET+"Alert, Are you sure to attack (Y/N)? ")
 
     if "Y" in quest.upper():
-        timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
-        timer.start()
-        LaunchCFSOC(target, thread, t)
-        timer.join()
+        if get_cookie(target):
+            timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+            timer.start()
+            LaunchCFSOC(target, thread, t)
+            timer.join()
+        else:
+            print(f"{Fore.RED} [*] {Fore.RESET}Cookie reset.")
     else:
         print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
         sys.exit()
@@ -884,4 +890,3 @@ if __name__ == '__main__':
     with open(file_path, 'r') as file:
         ua = file.read().split("\n") 
     login() 
-
