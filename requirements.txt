@@ -3,3 +3,4 @@ colorama
 requests
 httpx
 pysocks
+cloudscraper
