@@ -38,7 +38,9 @@ loadingg = LoadingThread(message_log, 'default')
 ########
 ########
 LOGIN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.log') 
-
+def clear_terminal():
+    # Menggunakan perintah 'cls' di Windows atau 'clear' di sistem operasi lain (Linux/Mac)
+    os.system('cls' if os.name == 'nt' else 'clear')
 def check_login_file():
     try:
         with open(LOGIN_FILE, "r") as f:
@@ -777,7 +779,7 @@ def StartTitle(nametools):
     if not check_text(ipAddress):
         CheckInternet()
     
-    os.system("clear")
+    clear_terminal()
     print(logo)
     print(Fore.MAGENTA + " [~] " + Fore.RESET + nametools)
     print(Fore.MAGENTA + " [!] " + Fore.RESET + "Public IP : " + ipAddress)
