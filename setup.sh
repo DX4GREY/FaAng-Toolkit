@@ -6,11 +6,11 @@ install_pip() {
     else
         echo "[*] Installing pip..."
         if [ -x "$(command -v python3)" ]; then
-            sudo apt update > /dev/null 2>&1
-            sudo apt install python3-pip > /dev/null 2>&1
+            sudo apt update -y > /dev/null 2>&1
+            sudo apt install python3-pip -y > /dev/null 2>&1
         elif [ -x "$(command -v python)" ]; then
-            sudo apt update > /dev/null 2>&1
-            sudo apt install python-pip > /dev/null 2>&1
+            sudo apt update -y > /dev/null 2>&1
+            sudo apt install python-pip -y > /dev/null 2>&1
         fi
     fi
 }
@@ -19,7 +19,7 @@ install_packages() {
     echo "[*] Starting package installation using pip..."
     if [ -x "$(command -v pip)" ]; then
         echo "[*] Installing package..."
-        python -m pip install -r requirements.txt> /dev/null 2>&1
+        python -m pip install -r requirements.txt > /dev/null 2>&1
         echo "[*] Package installation completed."
     else
         echo "[*] pip is not installed. Cannot proceed with package installation."
@@ -33,7 +33,7 @@ run_faang_script() {
 install_kali() {
     echo "[*] Starting Python installation on Kali Linux..."
     sudo apt update -y > /dev/null 2>&1
-    sudo apt install python3
+    sudo apt install python3 -y
     python3 --version
 
     install_pip
@@ -46,7 +46,7 @@ install_kali() {
 install_termux() {
     echo "[*] Starting Python installation on Termux..."
     pkg update -y > /dev/null 2>&1
-    pkg install python
+    pkg install python -y
     python --version
 
     install_pip
@@ -58,8 +58,8 @@ install_termux() {
 
 install_ubuntu() {
     echo "[*] Starting Python installation on Ubuntu..."
-    apt update -y > /dev/null 2>&1
-    apt install python3
+    sudo apt update -y > /dev/null 2>&1
+    sudo apt install python3 -y
     python3 --version
 
     install_pip
