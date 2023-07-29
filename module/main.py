@@ -889,7 +889,8 @@ def main():
     file_path = os.path.join(current_dir, 'resources', 'ua.txt') 
     with open(file_path, 'r') as file:
         ua = file.read().split("\n") 
-    parser = argparse.ArgumentParser(description="FaAng Toolkit for DDoS pentest", usage="faang [-l4] [method] [target] [thread] [proxy]\n   or: faang [-l7] [method] [target] [thread] [proxy]")
+    parser = argparse.ArgumentParser(description="FaAng Toolkit for DDoS pentest", usage="faang [-l4] [method] [target] [thread] [proxy]\n   or: faang [-l7] [method] [target] [thread] [proxy]",
+                                     prog="faang")
     parser.add_argument("method", type=str, nargs='?', default="",
                         help="Ddos method")
     parser.add_argument("target", type=str, nargs='?', default="",
