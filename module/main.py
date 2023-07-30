@@ -199,10 +199,10 @@ def Countdown(start_time, duration_seconds):
     while (time.time() - start_time) < duration_seconds:
         remaining_time = duration_seconds - (time.time() - start_time)
         time_formatted = "{:.1f}".format(remaining_time)
-        sys.stdout.write("\r"+ Fore.MAGENTA+" [*] "+Fore.RESET+ "Attack Timer => {} second    ".format(time_formatted))
+        sys.stdout.write("\r"+ Fore.MAGENTA+" [*] "+Fore.RESET+ "Attack Timer => {} second   ".format(time_formatted))
         sys.stdout.flush()
         time.sleep(0.1)
-    print(f"\r{Fore.GREEN} [*] {Fore.RESET}Attack Done                   \n")
+    print(f"\r{Fore.GREEN} [*] {Fore.RESET}Attack Done                    \n")
 
 def get_public_ip():
     try:
@@ -895,7 +895,7 @@ def main():
     parser = argparse.ArgumentParser(description="FaAng Toolkit for DDoS pentest", usage="faang [-l4] [method] [target] [thread] [proxy]\n   or: faang [-l7] [method] [target] [thread] [proxy]",
                                      prog="faang")
     parser.add_argument("method", type=str, nargs='?', default="",
-                        help="Ddos method")
+                        help="Ddos method, run faang to show list")
     parser.add_argument("target", type=str, nargs='?', default="",
                         help="Url target, ex : http://example.com/")
     parser.add_argument("thread", type=str, nargs='?', default="",
@@ -927,7 +927,7 @@ def main():
         print(f"{Fore.MAGENTA} [*] {Fore.RESET}Target IP : " + targetIp)
         print(f"{Fore.MAGENTA} [*] {Fore.RESET}Target PORT : " + targetPort)
         print(f"{Fore.MAGENTA} [*] {Fore.RESET}Thread : " + args.thread)
-        print(f"{Fore.MAGENTA} [*] {Fore.RESET}Time Attack : " + args.time + " sec")
+        print(f"{Fore.MAGENTA} [*] {Fore.RESET}Time Attack : " + args.time + " second")
         if args.method == "udp":
             threading.Thread(target=runsender, args=(targetIp, targetPort, args.time, args.thread,"")).start()
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))

@@ -32,7 +32,7 @@ faang --uninstall
 # HOW TO RUN
 1. Open terminal and type command
 ```bash
-faang
+faang [type] [method] [target] [thread] [time]
 ```
 
 if python not installed, try install manually
