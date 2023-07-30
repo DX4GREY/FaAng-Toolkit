@@ -783,6 +783,7 @@ def StartTitle(nametools):
     print(logo)
     print(Fore.MAGENTA + " [~] " + Fore.RESET + nametools)
     print(Fore.MAGENTA + " [!] " + Fore.RESET + "Public IP : " + ipAddress)
+    print()
 
 def check_text(text):
     if text is None or text.strip() == "":
