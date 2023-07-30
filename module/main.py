@@ -922,7 +922,7 @@ def main():
         if args.method == "udp":
             splitTarget = args.target.split(":")
             targetIp = splitTarget[0]
-            tergetPort = splitTarget[1]
+            targetPort = splitTarget[1]
             
             threading.Thread(target=runsender, args=(targetIp, targetPort, args.time, args.thread,"")).start()
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
@@ -931,7 +931,7 @@ def main():
         elif args.method == "tcp":
             splitTarget = args.target.split(":")
             targetIp = splitTarget[0]
-            tergetPort = splitTarget[1]
+            targetPort = splitTarget[1]
             
             threading.Thread(target=runsender, args=(targetIp, targetPort, args.time, args.thread,"")).start()
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
