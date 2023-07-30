@@ -918,21 +918,21 @@ def main():
         sys.exit()
     
     if args.layer4:
+        splitTarget = args.target.split(":")
+        targetIp = splitTarget[0]
+        targetPort = splitTarget[1]
+        
         StartTitle(f"Layer 4 : {method}")
+        print(f"{Fore.MAGENTA} [*] {Fore.RESET}Target IP : " + targetIp)
+        print(f"{Fore.MAGENTA} [*] {Fore.RESET}Target PORT : " + targetPort)
+        print(f"{Fore.MAGENTA} [*] {Fore.RESET}Thread : " + args.thread)
+        print(f"{Fore.MAGENTA} [*] {Fore.RESET}Time Attack : " + args.time + " sec")
         if args.method == "udp":
-            splitTarget = args.target.split(":")
-            targetIp = splitTarget[0]
-            targetPort = splitTarget[1]
-            
             threading.Thread(target=runsender, args=(targetIp, targetPort, args.time, args.thread,"")).start()
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
             timer.start()
             timer.join()
         elif args.method == "tcp":
-            splitTarget = args.target.split(":")
-            targetIp = splitTarget[0]
-            targetPort = splitTarget[1]
-            
             threading.Thread(target=runsender, args=(targetIp, targetPort, args.time, args.thread,"")).start()
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
             timer.start()
@@ -942,6 +942,9 @@ def main():
         
     elif args.layer7:
         StartTitle(f"Layer 7 : {method}")
+        print(f"{Fore.MAGENTA} [*] {Fore.RESET}Target : " + args.target)
+        print(f"{Fore.MAGENTA} [*] {Fore.RESET}Thread : " + args.thread)
+        print(f"{Fore.MAGENTA} [*] {Fore.RESET}Time Attack : " + args.time + " sec")
         if args.method == "get":
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
             timer.start()
