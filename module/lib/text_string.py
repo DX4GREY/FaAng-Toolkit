@@ -1,4 +1,9 @@
 from colorama import Fore
+
+def desc():
+    help_desc = "The features within this menu offer a range of powerful and diverse DDoS methods, designed to test and identify vulnerabilities and resilience of networks and servers. This menu encompasses attacks on both layer 4 and layer 7, including various attack types such as UDP, TCP, HTTP, and more. These attack methods enable users to simulate real-world scenarios, providing deeper insights into the defense capabilities of their systems against such attacks. Ranging from request-based attacks to protocol-based ones, this menu covers a broad spectrum of options to identify and mitigate DDoS risks effectively."
+    return help_desc
+    
 def menus():
     menu = [
         "UDP       layer4 => UDP Attack", 

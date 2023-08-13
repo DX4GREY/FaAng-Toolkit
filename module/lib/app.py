@@ -7,7 +7,7 @@ from colorama import Back, Fore, Style
 import subprocess, argparse, time, requests
 from lib.func import *
 from lib.view import *
-from lib.text_string import menus, logos
+from lib.text_string import menus, logos, desc
 
 logo = logos()
 
@@ -209,7 +209,7 @@ def main():
     file_path = os.path.join(current_dir, 'resources', 'ua.txt') 
     with open(file_path, 'r') as file:
         ua = file.read().split("\n") 
-    parser = argparse.ArgumentParser(description="FaAng Toolkit for DDoS pentest", usage="faang [-l4] [method] [target] [thread] [proxy]\n   or: faang [-l7] [method] [target] [thread] [time]",
+    parser = argparse.ArgumentParser(description=desc(), usage="faang [-l4] [method] [target] [thread] [proxy]\n   or: faang [-l7] [method] [target] [thread] [time]",
                                      prog="faang")
     parser.add_argument("method", type=str, nargs='?', default="",
                         help="Ddos method, run faang to show list")
