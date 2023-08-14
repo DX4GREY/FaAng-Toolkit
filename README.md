@@ -5,7 +5,7 @@
 1. UDP - UDP Attack
 2. TCP - TCP Attack
 3. FiveM - Fivem Server Attack
-4. MCPE - Minecraft PE Attack
+4. Minecraft - Minecraft Bedrock or Java Server Attack
 
 ## Layer 7 Attack Types (Application Layer)
 ### HTTP Request Methods

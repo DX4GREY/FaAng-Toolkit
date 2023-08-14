@@ -9,7 +9,7 @@ def menus():
         "UDP       layer4 => UDP Attack", 
         "TCP       layer4 => TCP Attack", 
         "FiveM     layer4 => Fivem Server Attack", 
-        "MCPE      layer4 => Minecraft PE Attack", 
+        "MC        layer4 => Minecraft Bedrock or Java Server Attack", 
         "", 
         "GET       layer7 => 'Requests GET' Attack", 
         "POS       layer7 => 'Requests POST' Attack", 
@@ -27,6 +27,21 @@ def menus():
     ]
     return menu
 
+def word_wrapper(text, line_length):
+    words = text.split()
+    lines = []
+    current_line = words[0]
+
+    for word in words[1:]:
+        if len(current_line) + 1 + len(word) <= line_length:
+            current_line += " " + word
+        else:
+            lines.append(current_line)
+            current_line = word
+
+    lines.append(current_line)
+    return "\n".join(lines)
+
 def logos():
     logo = f"""
 {Fore.MAGENTA} █████▒▄▄▄          ▄▄▄       ███▄    █   ▄████ 
@@ -39,16 +54,6 @@ def logos():
  ░ ░     ░   ▒        ░   ▒      ░   ░ ░ ░ ░   ░ 
              ░  ░         ░  ░         ░       ░ 
                                                  
-THE OWNER OF THESE TOOLS (Dx4) WILL NOT BE RESPONSIBLE 
-FOR ANY DAMAGE CAUSED BY THE USER OWN THEREFORE,
-USE THESE TOOLS ONLY TO TEST YOUR OWN SITE FOR {Fore.GREEN}VULNERABILITIES 
-{Fore.RESET}ATTACKING SITES OWNED BY OTHERS, {Fore.YELLOW}FAANG SHOULD 
-NOT BE USED FOR ILLEGAL ACTIVITIES{Fore.RESET}, BY USING THIS SOFTWARE, 
-{Fore.RED}YOU MUST AGREE TO BE FULLY RESPONSIBLE FOR DAMAGE 
-CAUSED BY FAANG IN ANY WAY TO YOUR OWN{Fore.RESET}. THE CREATORS 
-DO NOT WANT PEOPLE TO USE FAANG IF THEY HAVE NO 
-EXPERIENCE WITH ATTACKS INCLUDING. ANY ATTACK WILL CAUSE 
-TEMPORARY DAMAGE, BUT {Fore.YELLOW}LONG TERM DAMAGE{Fore.RESET} IS POSSIBLE. 
-FAANG SHOULD NOT ADVISE PEOPLE TO DO {Fore.RED}ILLEGAL ACTIVITIES{Fore.RESET}.
+{word_wrapper(f"THE OWNER OF THESE TOOLS (Dx4) WILL NOT BE RESPONSIBLE FOR ANY DAMAGE CAUSED BY THE USER OWN THEREFORE, USE THESE TOOLS ONLY TO TEST YOUR OWN SITE FOR {Fore.GREEN}VULNERABILITIES {Fore.RESET}ATTACKING SITES OWNED BY OTHERS, {Fore.YELLOW}FAANG SHOULD NOT BE USED FOR ILLEGAL ACTIVITIES{Fore.RESET}, BY USING THIS SOFTWARE, {Fore.RED}YOU MUST AGREE TO BE FULLY RESPONSIBLE FOR DAMAGE CAUSED BY FAANG IN ANY WAY TO YOUR OWN{Fore.RESET}. THE CREATORS DO NOT WANT PEOPLE TO USE FAANG IF THEY HAVE NO EXPERIENCE WITH ATTACKS INCLUDING. ANY ATTACK WILL CAUSE TEMPORARY DAMAGE, BUT {Fore.YELLOW}LONG TERM DAMAGE{Fore.RESET} IS POSSIBLE. FAANG SHOULD NOT ADVISE PEOPLE TO DO {Fore.RED}ILLEGAL ACTIVITIES{Fore.RESET}.", 60)}
 """
     return logo
