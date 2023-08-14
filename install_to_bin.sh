@@ -16,7 +16,7 @@ detect_platform() {
     esac
 }
 install_linux(){
-    sudo echo "sudo python $HOME/.faang/main.py \$1 \$2 \$3 \$4 \$5" > $HOME/.local/bin/faang
+    sudo echo "sudo python $HOME/.faang/main.py \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9" > $HOME/.local/bin/faang
     sudo echo 'echo "[*] Uninstalling faang..." && sudo rm -rf $HOME/.faang && sudo rm -rf $HOME/.local/bin/faang && sudo rm -rf $HOME/.local/bin/faang-uninstaller && echo "[*] faang uninstall task done"' > $HOME/.local/bin/faang-uninstaller
     sudo cp -r "$(cd "$(dirname "$0")" && pwd)/module" "$HOME/.faang"
     sudo chmod +x $HOME/.local/bin/faang
@@ -24,7 +24,7 @@ install_linux(){
 }
 install_termux(){
     cp -r "$(cd "$(dirname "$0")" && pwd)/module" "$HOME/.faang"
-    echo "python $HOME/.faang/main.py \$1 \$2 \$3 \$4 \$5" > $PREFIX/bin/faang
+    echo "python $HOME/.faang/main.py \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9" > $PREFIX/bin/faang
     echo 'echo "[*] Uninstalling faang..." && rm -rf $HOME/.faang && rm -rf $PREFIX/bin/faang && rm -rf $PREFIX/bin/faang-unisntaller && echo "[*] faang uninstall task done"' > $PREFIX/bin/faang-uninstaller
     chmod +x $PREFIX/bin/faang
     chmod +x $PREFIX/bin/faang-uninstaller

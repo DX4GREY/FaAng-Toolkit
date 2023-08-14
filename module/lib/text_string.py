@@ -8,17 +8,22 @@ def menus():
     menu = [
         "UDP       layer4 => UDP Attack", 
         "TCP       layer4 => TCP Attack", 
+        "FiveM     layer4 => Fivem Server Attack", 
+        "MCPE      layer4 => Minecraft PE Attack", 
         "", 
         "GET       layer7 => 'Requests GET' Attack", 
         "POS       layer7 => 'Requests POST' Attack", 
         "SOC       layer7 => Socket Attack" , 
         "HTTP2     layer7 => HTTP 2.0 Request Attack", 
         "SPOOF     layer7 => HTTP Spoof Socket Attack  ", 
-        "HEAD      layer7 => Head Request Attack", 
-        "SKY       layer7 => Sky method", 
+        "HEAD     layer7 => Head Request Attack", 
+        "SKY      layer7 => Sky method", 
         "CFREQ    layer7 => Bypass CF UAM, CAPTCHA, BFM (request)", 
         "CFSOC    layer7 => Bypass CF UAM, CAPTCHA, BFM (socket)", 
-        "CFB      layer7 => Bypass CF Attack"
+        "CFB      layer7 => Bypass CF Attack", 
+        "SLOW     layer7 => Slowloris method attack", 
+        "MBP      layer7 => Send large megabyte payload method attack", 
+        "RUDY     layer7 => Send large content for attack"
     ]
     return menu
 

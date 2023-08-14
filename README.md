@@ -1,20 +1,31 @@
 # FaAng - DDoS Tools
 <img src="https://img.shields.io/badge/Python-3.11-red"></img> <img src="https://img.shields.io/badge/FaAng-BETA-blue"></img> <img src="https://img.shields.io/badge/Kali Linux-2023.1-green"></img> <img src="https://img.shields.io/badge/Ubuntu-20.04-yellow"></img><br>
 
-<h2>List In Script</h2>
-<b>[1]</b> UDP       layer4 => UDP Attack<br>
-<b>[2]</b> TCP       layer4 => TCP Attack<br>
-<b>[3]</b> GET       layer7 => 'Requests GET' Attack<br>
-<b>[4]</b> POS       layer7 => 'Requests POST' Attack<br>
-<b>[5]</b> SOC       layer7 => Socket Attack<br>
-<b>[6]</b> HTTP2     layer7 => HTTP 2.0 Request Attack<br>
-<b>[7]</b> SPOOF     layer7 => HTTP Spoof Socket Attack<br>
-<b>[8]</b> HEAD      layer7 => Head Request Attack<br>
-<b>[9]</b> SKY       layer7 => Sky method<br>
-<b>[10]</b> CFREQ    layer7 => Bypass CF UAM, CAPTCHA, BFM (request)<br>
-<b>[11]</b> CFSOC    layer7 => Bypass CF UAM, CAPTCHA, BFM (socket)<br>
-<b>[12]</b> CFB    layer7 => Bypass CF Attack<br>
+## Layer 4 Attack Types (Transport Layer)
+1. UDP - UDP Attack
+2. TCP - TCP Attack
+3. FiveM - Fivem Server Attack
+4. MCPE - Minecraft PE Attack
 
+## Layer 7 Attack Types (Application Layer)
+### HTTP Request Methods
+5. GET - 'Requests GET' Attack
+6. POST - 'Requests POST' Attack
+7. SOC - Socket Attack
+8. HTTP2 - HTTP 2.0 Request Attack
+9. SPOOF - HTTP Spoof Socket Attack
+10. HEAD - Head Request Attack
+11. SKY - Sky Method
+
+### Bypass and Evasion Methods
+12. CFREQ - Bypass CF UAM, CAPTCHA, BFM (request)
+13. CFSOC - Bypass CF UAM, CAPTCHA, BFM (socket)
+14. CFB - Bypass CF Attack
+
+### Denial of Service Methods
+15. SLOW - Slowloris Method Attack
+16. MBP - Send Large Megabyte Payload Method Attack
+17. RUDY - Send Large Content for Attack
 # INSTALLATION
   
 Installation support for Kali Linux, Ubuntu And Termux
