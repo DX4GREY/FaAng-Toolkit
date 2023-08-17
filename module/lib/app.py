@@ -228,7 +228,6 @@ def main():
     parser = argparse.ArgumentParser(description=desc(), usage="faang [-l4] [method] [target] [thread] [time]\n   or: faang [-l7] [method] [target] [thread] [time]",
                                      prog="faang")
     parser.add_argument("method", type=str, nargs='?', default="", 
-                        choices=["udp", "tcp", "fivem", "minecraft", "get", "post", "socket", "http2", "spoof", "head", "sky", "cfreq", "cfsoc", "cfb", "slowloris", "mbp", "rudy"], 
                         help="Ddos method")
     parser.add_argument("target", type=str, nargs='?', default="",
                         help="Url target, ex : http://example.com/")
